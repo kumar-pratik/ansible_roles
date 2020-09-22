@@ -1,0 +1,21 @@
+---
+- hosts: webservers
+  remote_user: ubuntu
+  tasks:
+    - name: run echo command
+      command: /bin/echo "hello world"
+      notify:
+        - Do something
+  
+    - name: create a directory
+      file:
+        dest: ~/my_dir
+        state: directory
+      notify:
+        - Do something
+
+  handlers:
+    - name: Do something
+      command: /bin/echo "Doing Something"
+...
+

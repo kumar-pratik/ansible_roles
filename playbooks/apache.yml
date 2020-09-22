@@ -1,0 +1,16 @@
+---
+- hosts: webservers
+  remote_user: ubuntu
+  become: yes 
+
+  tasks:
+
+    - name: Install Apache
+      apt: name=apache2 update_cache=yes state=latest force_apt_get=yes
+    
+    - name: Copy a html file to www
+      copy: src=~/Ansible/home.html dest=/var/www/home.html
+    
+    - name: Restart service
+      service: name=apache2 state=restarted
+... 
