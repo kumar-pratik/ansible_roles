@@ -1,0 +1,25 @@
+---
+all:
+  children:
+    india:
+      children:
+        noida:
+	  hosts:
+	    192.168.27.32
+	    192.168.27.33
+	pune:
+          hosts:
+            192.168.32.65
+            192.168.32.66
+    usa:
+      children:
+	boston:
+          hosts:     
+	    222.138.65.43
+            222.138.65.44
+            222.138.65.45
+	chicago:
+	  hosts:
+	    148.123.66.34
+            148.123.66.35
+...
