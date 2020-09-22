@@ -1,0 +1,14 @@
+---
+- hosts: webservers
+  remote_user: ubuntu
+  roles:
+    - apache
+    - java8
+
+- hosts: jenkinserver
+  remote_user: pratik
+  roles:
+    - apache
+    - java8
+    - jenkins
+...
