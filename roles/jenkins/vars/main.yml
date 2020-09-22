@@ -1,0 +1,3 @@
+jenkins:
+  repo_url: "deb https://pkg.jenkins.io/debian-stable binary/"
+  gpg_key: "https://pkg.jenkins.io/debian-stable/jenkins.io.key"

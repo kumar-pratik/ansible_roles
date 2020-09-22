@@ -1,0 +1,18 @@
+- name: Ensure the jenkins apt repository key is installed
+  apt_key: 
+    url: "{{ jenkins.gpg_key }}" 
+    state: present
+  become: yes
+
+- name: Ensure the repository is configured
+  apt_repository: 
+    repo: "{{ jenkins.repo_url }}"
+    state: present
+  become: yes
+
+- name: Ensure jenkins is installed
+  apt: 
+    name: jenkins 
+    update_cache: yes
+  become: yes
+  notify: Start Jenkins
