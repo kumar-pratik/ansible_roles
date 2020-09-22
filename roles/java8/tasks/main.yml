@@ -1,0 +1,5 @@
+- name: Install java8
+  apt:
+    name: "{{ java.version }}"
+    state: present
+  become: yes
