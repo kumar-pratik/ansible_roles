@@ -1,0 +1,20 @@
+- name: Install Apache
+  apt: 
+    name: apache2 
+    update_cache: yes 
+    state: latest 
+  become: yes
+
+- name: Copy html files
+  copy:
+    src: "{{ role_path }}/files/home.html"
+    dest: "/var/www/html/home.html"    
+    mode: '644'
+  become: yes
+  notify: Restart Apache
+
+- name: Copy template
+  template:
+    src: "info.html.j2"
+    dest: "/var/www/html/info.html"
+  become: yes
