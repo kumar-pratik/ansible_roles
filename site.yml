@@ -2,13 +2,18 @@
 - hosts: webservers
   remote_user: ubuntu
   roles:
-    - apache
-    - java8
+    - role: apache
+    - role: java8
 
 - hosts: jenkinserver
   remote_user: pratik
+  pre_tasks:
+    - name: "Check packages info"
+      package_facts:
+        manager: "auto"
   roles:
-    - apache
-    - java8
-    - jenkins
+    - role: apache
+    - role: java8
+    - role: jenkins
+      when: "'jenkins' not in ansible_facts.packages"
 ...
